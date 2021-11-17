@@ -1,6 +1,10 @@
 <?php
 
 include 'head.php';
+session_start();
+
+
+
 echo'Analisis de las Multas por Radares <mark>(1.5 Puntos)<br><br>
 <table>
   <thead>
@@ -11,15 +15,24 @@ echo'Analisis de las Multas por Radares <mark>(1.5 Puntos)<br><br>
       <th>Radar 4</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>10</td>
-      <td>20</td>
-      <td>15</td>
-      <td>67</td>
-    </tr>
+  <tbody>';
+  foreach($_SESSION['multas'] as $_SESSION['radar'])
+        {
+            echo'<tr>
+                <td>'.$_SESSION['radar'].'</td>
+                <td>'.$_SESSION['radar'].'</td>
+                <td>'.$_SESSION['radar'].'</td>
+                <td>'.$_SESSION['radar'].'</td>
+            </tr>';
+        }
+    //<tr>
+    //  <td>10</td>
+    //  <td>20</td>
+    //  <td>15</td>
+    //  <td>67</td>
+    //</tr>
     
-  </tfoot>
+  echo '</tfoot>
 </table>
 
 ';
