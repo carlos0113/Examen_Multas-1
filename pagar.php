@@ -1,17 +1,26 @@
 <?php
 
 include 'head.php';
-if (isset($_REQUEST['pagar']))
+session_start();
+$codigo=0;
+
+if(isset($_REQUEST['borrar']))
 {
-  $fecha= $_REQUEST['fecha_hora'];
-  echo $fecha;
- 
+  $matricula=$_REQUEST['matricula'];
+  $fecha_hora=$_REQUEST['fecha_hora'];
+
+  $codigo=$matricula.' '.$fecha_hora;
+  //como el valor que tenemos que cambiar es pagado, en la posicion 6, hacemos esto
+  $reemplazo=array(6 => "SI");
+  
+  array_replace($_SESSION['multas'][$codigo], $reemplazo);
+var_dump($_SESSION['multas']);
 }
 
 echo' 
 Introduce los datos de la Multa a Pagar <mark>(1.5 Puntos)<br><br>
                          
-<div   class="postcontent"><form action="" method="post">
+<div   class="postcontent"><form action="pagar.php" method="post">
 <table align="center" class="content-layout">
   
   
