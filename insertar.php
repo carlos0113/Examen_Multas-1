@@ -36,10 +36,11 @@ if(isset($_REQUEST['insertar'])){
                                   'cuantia'=> $cuantia,
                                         'fecha_hora' => $fecha_hora,
                                         'pagada'=> 'NO');
-      var_dump($_SESSION['multas']);
+    var_dump($_SESSION['multas']);
+    echo '<br>'.'Se introdujo correctamente'.'<br>';
   }
   else {
-    echo 'La velocidad introducida no excede el limite';
+    echo '<br>'.'La velocidad introducida no excede el limite'.'<br>';
   }
 }
 
