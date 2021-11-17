@@ -4,17 +4,17 @@ include 'head.php';
 session_start();
 $codigo=0;
 
-if(isset($_REQUEST['borrar']))
+if(isset($_REQUEST['pagar']))
 {
   $matricula=$_REQUEST['matricula'];
   $fecha_hora=$_REQUEST['fecha_hora'];
 
   $codigo=$matricula.' '.$fecha_hora;
-  //como el valor que tenemos que cambiar es pagado, en la posicion 6, hacemos esto
-  $reemplazo=array(6 => "SI");
+  //como el valor que tenemos que cambiar es pagada, sustituimos el valor de pagado:
+  $reemplazo=array('pagada' => "SI");
   
-  array_replace($_SESSION['multas'][$codigo], $reemplazo);
-var_dump($_SESSION['multas']);
+  $_SESSION['multas'][$codigo]=array_replace($_SESSION['multas'][$codigo], $reemplazo);
+//var_dump($_SESSION['multas']);
 }
 
 echo' 
