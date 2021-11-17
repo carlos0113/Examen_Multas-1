@@ -39,7 +39,7 @@ if(isset($_REQUEST['insertar'])){
                                   'cuantia'=> $cuantia,
                                         'fecha_hora' => $fecha_hora,
                                         'pagada'=> 'NO');
-    var_dump($_SESSION['multas']);
+    //var_dump($_SESSION['multas']);
     echo '<br>'.'Se introdujo correctamente'.'<br>';
   }
   else {

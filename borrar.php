@@ -11,10 +11,19 @@ if(isset($_REQUEST['borrar']))
   $fecha_hora=$_REQUEST['fecha_hora'];
 
   $codigo= $matricula.' '.$fecha_hora;
-
+  $array_antes=count($_SESSION['multas']);
+  
   unset($_SESSION['multas'][$codigo]);
-  //matricula se encuentra en la posicion 0 y fecha_hora en la 5
 
+  $array_despues=count($_SESSION['multas']);
+
+  if ($array_antes==$array_despues){
+    echo '<br>'.'la multa no existe'.'<br>';
+  }
+  else {
+    echo '<br>'.'se ha borrado con exito'.'<br>';
+  }
+  
 }
 
 echo' 
