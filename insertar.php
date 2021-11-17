@@ -11,6 +11,9 @@ if(isset($_REQUEST['insertar'])){
   $velocidad=$_REQUEST['velocidad'];
   $fecha_hora=$_REQUEST['fecha_hora'];
 
+  $codigo= $matricula.' '.$fecha_hora;
+  //echo $codigo;
+
   switch ($radar){
     case 1:
       $limite=30;
@@ -28,7 +31,7 @@ if(isset($_REQUEST['insertar'])){
   $cuantia=(($velocidad-$limite)*10)+50;
 
   if ($velocidad>$limite){
-    $_SESSION['multas'][]=array(
+    $_SESSION['multas'][$codigo]=array(
                                   'matricula' => $matricula,
                                   'radar' => $radar,
                                   'limite' => $limite,

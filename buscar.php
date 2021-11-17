@@ -1,7 +1,9 @@
-
 <?php
-
+session_start();
 include 'head.php';
+
+
+
 echo' 
 Introduce la Matricula de la Multa/s <mark> NO PAGADAS</mark> a Buscar<mark>(1 Puntos)<br><br>
                          

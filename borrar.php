@@ -1,10 +1,26 @@
 <?php
-session_start
+
 include 'head.php';
+session_start();
+
+$codigo=0;
+
+if(isset($_REQUEST['borrar']))
+{
+  $matricula=$_REQUEST['matricula'];
+  $fecha_hora=$_REQUEST['fecha_hora'];
+
+  $codigo= $matricula.' '.$fecha_hora;
+
+  unset($_SESSION['multas'][$codigo]);
+  //matricula se encuentra en la posicion 0 y fecha_hora en la 5
+
+}
+
 echo' 
 Introduce los datos de la Multa a Borrar<mark>(1.5 Puntos)<br><br>
                          
-<div   class="postcontent"><form action="" method="post">
+<div   class="postcontent"><form action="borrar.php" method="post">
 <table align="center" class="content-layout">
   
   
