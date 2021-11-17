@@ -1,5 +1,5 @@
 <?php
-
+session_start
 include 'head.php';
 echo' 
 Introduce los datos de la Multa a Borrar<mark>(1.5 Puntos)<br><br>
