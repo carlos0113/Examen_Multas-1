@@ -47,7 +47,7 @@ if(isset($_REQUEST['insertar'])){
 echo'Introduce los siguientes datos de la Multa<mark>(2 Puntos)<br><br>
                                      
               <div   class="postcontent">
-              <form action="" method="post">
+              <form action="insertar.php" method="post">
                     <table align="center" class="content-layout">
                     <tr>
                       <td align="right"><strong>Matricula:</strong></td>
