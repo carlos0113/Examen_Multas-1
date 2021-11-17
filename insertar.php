@@ -1,6 +1,48 @@
 <?php
-
+session_start();
 include 'head.php';
+
+$limite=0;
+$cuantia=0;
+
+if(isset($_REQUEST['insertar'])){
+  $matricula=$_REQUEST['matricula'];
+  $radar=$_REQUEST['identificador'];
+  $velocidad=$_REQUEST['velocidad'];
+  $fecha_hora=$_REQUEST['fecha_hora'];
+
+  switch ($radar){
+    case 1:
+      $limite=30;
+      break;
+    case 2:
+      $limite=50;
+      break;
+    case 3:
+      $limite=90;
+      break;
+    case 4:
+      $limite=100;
+      break;
+  }
+  $cuantia=(($velocidad-$limite)*10)+50;
+
+  if ($velocidad>$limite){
+    $_SESSION['multas'][]=array(
+                                  'matricula' => $matricula,
+                                  'radar' => $radar,
+                                  'limite' => $limite,
+                                        'velocidad' => $velocidad,
+                                  'cuantia'=> $cuantia,
+                                        'fecha_hora' => $fecha_hora,
+                                        'pagada'=> 'NO');
+      var_dump($_SESSION['multas']);
+  }
+  else {
+    echo 'La velocidad introducida no excede el limite';
+  }
+}
+
 echo'Introduce los siguientes datos de la Multa<mark>(2 Puntos)<br><br>
                                      
               <div   class="postcontent">
@@ -17,10 +59,10 @@ echo'Introduce los siguientes datos de la Multa<mark>(2 Puntos)<br><br>
                         <td>
                           <div align="left">
                                 <select name="identificador">
-                                  <option value="">Radar 1</option>
-                                  <option value="">Radar 2</option>
-                                  <option value="">Radar 3</option>
-                                  <option value="">Radar 4</option>
+                                  <option value="1">Radar 1</option>
+                                  <option value="2">Radar 2</option>
+                                  <option value="3">Radar 3</option>
+                                  <option value="4">Radar 4</option>
                                  
                                 </select>
                            </div>
