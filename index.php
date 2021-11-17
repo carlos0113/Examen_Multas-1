@@ -5,7 +5,7 @@ session_start();
 
 echo'<img src = "images/multa.jpg" width = "820" height = "350" alt = "multas-trafico"/>';
 
-$multas = array(
+$_SESSION["multas"] = array(
 		array(
 			'matricula' => '1111BBB',
 			'radar' => 1,
